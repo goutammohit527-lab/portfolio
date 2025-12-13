@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mohit Gautam | Portfolio</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
+body{background:#050b18;color:#e8f1ff;overflow:hidden}
+
+/* BACKGROUND */
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  background:
+    radial-gradient(circle at 20% 30%,rgba(0,200,255,.08),transparent 40%),
+    radial-gradient(circle at 80% 70%,rgba(140,100,255,.08),transparent 40%);
+  animation:bgMove 12s linear infinite alternate;
+  z-index:-1;
+}
+@keyframes bgMove{to{transform:translateY(-60px)}}
+
+/* NAV */
+nav{
+  position:fixed;top:0;width:100%;padding:16px;
+  display:flex;justify-content:center;gap:14px;
+  backdrop-filter:blur(12px);
+  background:rgba(5,11,24,.6);
+  z-index:10;opacity:0;pointer-events:none;
+  transition:.6s;
+}
+nav.show{opacity:1;pointer-events:auto}
+nav button{
+  padding:10px 18px;border-radius:12px;
+  border:1px solid #5cc8ff;background:transparent;
+  color:#5cc8ff;font-weight:600;cursor:pointer;
+}
+nav button:hover{background:#5cc8ff;color:#02111f}
+
+/* PAGE SYSTEM */
+.page{
+  position:absolute;inset:0;padding-top:120px;
+  display:flex;justify-content:center;align-items:flex-start;
+  opacity:0;pointer-events:none;
+  transform:scale(1.05);filter:blur(16px);
+  transition:.8s;
+  overflow-y:auto;
+}
+.page.active{opacity:1;pointer-events:auto;transform:scale(1);filter:blur(0)}
+.page.fadeout{opacity:0;transform:scale(.9);filter:blur(25px)}
+
+.box{
+  max-width:1000px;background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:22px;padding:40px;
+  backdrop-filter:blur(14px);
+  margin-bottom:40px;
+}
+
+h1{font-size:52px}
+h2{font-size:34px;margin-bottom:16px}
+h3{margin-top:20px;margin-bottom:8px;color:#9dd6ff}
+p{color:#b8c9e8;font-size:16px;line-height:1.85}
+
+/* HOME */
+.home{text-align:center;flex-direction:column;align-items:center}
+.home button{
+  margin:10px;padding:14px 30px;
+  border-radius:14px;border:1px solid #5cc8ff;
+  background:transparent;color:#5cc8ff;cursor:pointer;
+}
+.home button:hover{background:#5cc8ff;color:#02111f}
+
+/* PROJECT GRID */
+.project-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+}
+@media(max-width:900px){.project-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:500px){.project-grid{grid-template-columns:1fr}}
+
+.card{
+  padding:18px;border-radius:16px;
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.06);
+  cursor:pointer;transition:.3s;
+}
+.card:hover{transform:translateY(-6px);box-shadow:0 0 30px rgba(0,200,255,.35)}
+
+.back{margin-bottom:20px;display:inline-block;cursor:pointer;color:#5cc8ff}
+</style>
+</head>
+
+<body>
+
+<nav id="topNav">
+  <button onclick="switchPage('home')">Home</button>
+  <button onclick="switchPage('about')">About</button>
+  <button onclick="switchPage('projects')">Projects</button>
+  <button onclick="switchPage('experience')">Experience</button>
+  <button onclick="switchPage('contact')">Contact</button>
+</nav>
+
+<!-- HOME -->
+<div id="home" class="page active home">
+  <div class="box">
+    <h1>Mohit Gautam</h1>
+    <p>Embedded Engineer • Robotics • R&D • IoT Systems</p>
+    <button onclick="switchPage('about')">About</button>
+    <button onclick="switchPage('projects')">Projects</button>
+    <button onclick="switchPage('experience')">Experience</button>
+    <button onclick="switchPage('contact')">Contact</button>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div id="about" class="page">
+  <div class="box">
+    <h2>About Myself</h2>
+
+    <p>
+      I am an <b>Embedded Engineer</b> with a strong foundation in
+      <b>Research & Development (R&D)</b> and hands-on expertise in
+      <b>Robotics and Intelligent Embedded Systems</b>.
+      My primary focus is on designing reliable, real-time,
+      microcontroller-based solutions for industrial and safety-critical applications.
+    </p>
+
+    <p>
+      I have extensive experience working with
+      <b>ESP32, STM32, Arduino (Uno/Nano), ATmega, and PIC microcontrollers</b>,
+      developing firmware in <b>Embedded C/C++</b>,
+      and implementing deterministic logic for
+      <b>real-time data acquisition, control systems, and monitoring platforms</b>.
+    </p>
+
+    <p>
+      My technical skill set includes
+      <b>sensor interfacing</b> (temperature, vibration, RFID, IR, IMU),
+      <b>motor control and PWM techniques</b>,
+      and communication protocols such as
+      <b>UART, SPI, I2C, BLE, Wi-Fi</b>.
+      I also work on <b>system validation, PCB debugging, and field testing</b>.
+    </p>
+
+    <p>
+      With a strong inclination towards <b>Robotics</b> and <b>Applied R&D</b>,
+      I aim to build scalable embedded solutions that can be deployed
+      in real-world environments such as
+      <b>railway safety systems, automation, and IoT-based monitoring infrastructure</b>.
+    </p>
+  </div>
+</div>
+
+<!-- PROJECTS -->
+<div id="projects" class="page">
+  <div class="box">
+    <h2>Projects</h2>
+    <div class="project-grid">
+      <div class="card" onclick="openProject('balance')">Self-Balancing Robot</div>
+      <div class="card" onclick="openProject('rfid')">RFID Sorting Robot</div>
+      <div class="card" onclick="openProject('earthquake')">Earthquake Detection System</div>
+      <div class="card" onclick="openProject('crt')">CRT – Railway Track Temperature</div>
+      <div class="card" onclick="openProject('hotaxle')">Hot Axle Box Monitoring</div>
+      <div class="card" onclick="openProject('blackbox')">Car Black Box System</div>
+      <div class="card" onclick="openProject('aqi')">AQI Monitoring Device</div>
+      <div class="card" onclick="openProject('bluetooth')">Bluetooth Controlled Robot</div>
+    </div>
+  </div>
+</div>
+
+<!-- PROJECT DETAIL -->
+<div id="projectDetail" class="page">
+  <div class="box">
+    <span class="back" onclick="switchPage('projects')">← Back to Projects</span>
+    <div id="projectContent"></div>
+  </div>
+</div>
+
+<!-- EXPERIENCE -->
+<div id="experience" class="page">
+  <div class="box">
+    <h2>Experience</h2>
+    <p><b>Tecxtra Pvt. Ltd.</b><br>October 2024 – Present</p>
+    <p>
+      Working in R&D on railway-grade embedded systems including
+      CRT and Hot Axle Box projects, sensor validation,
+      real-time monitoring, data transmission to railway portals,
+      PCB debugging, and system-level testing.
+    </p>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div id="contact" class="page">
+  <div class="box">
+    <h2>Contact</h2>
+    <p>📞 9730075449</p>
+    <p>📧 goutammohit527@gmail.com</p>
+    <p>📍 Nagpur, India</p>
+  </div>
+</div>
+
+<script>
+let currentPage='home';
+const nav=document.getElementById('topNav');
+
+function switchPage(id){
+  const cur=document.getElementById(currentPage);
+  const next=document.getElementById(id);
+  cur.classList.add('fadeout');
+  setTimeout(()=>{
+    cur.classList.remove('active','fadeout');
+    next.classList.add('active');
+    if(id!=='home') nav.classList.add('show'); else nav.classList.remove('show');
+    currentPage=id;
+  },500);
+}
+
+function openProject(key){
+  const data={
+
+balance:`
+<h2>Self-Balancing Robot</h2>
+<h3>Overview</h3>
+<p>
+A two-wheel self-balancing robotic platform developed to study
+real-time control systems and closed-loop feedback mechanisms.
+</p>
+<h3>Controller & Sensors</h3>
+<p>
+Arduino Uno with IMU (accelerometer + gyroscope).
+</p>
+<h3>System Architecture</h3>
+<p>
+The IMU continuously measures tilt angle.
+A PID control algorithm calculates the error between the
+desired vertical position and the actual tilt.
+Motor speed is adjusted using PWM signals through a motor driver.
+</p>
+<h3>Outcome</h3>
+<p>
+Achieved stable balancing with fast recovery from external disturbances,
+demonstrating effective real-time control implementation.
+</p>
+`,
+
+rfid:`
+<h2>RFID Sorting Robot</h2>
+<h3>Overview</h3>
+<p>
+An autonomous robotic system designed to identify and sort objects
+based on RFID tag identification.
+</p>
+<h3>Controller & Sensors</h3>
+<p>
+ESP32 microcontroller, RFID RC522 module, IR sensors, servo motors.
+</p>
+<h3>Working Principle</h3>
+<p>
+The robot follows a predefined path using IR sensors.
+When an RFID tag is detected, the ESP32 reads the tag ID and
+activates a servo mechanism to route the object to its respective location.
+</p>
+<h3>Outcome</h3>
+<p>
+Reliable and automated object identification and sorting with minimal human intervention.
+</p>
+`,
+
+earthquake:`
+<h2>Earthquake Detection System</h2>
+<h3>Overview</h3>
+<p>
+A vibration-based earthquake detection and early warning system
+designed to monitor abnormal ground movement in real time.
+</p>
+<h3>Controller & Sensors</h3>
+<p>
+ESP32 microcontroller with SW420 vibration sensors.
+</p>
+<h3>System Working</h3>
+<p>
+The ESP32 continuously samples vibration signals from multiple sensors.
+Vibration intensity and frequency are analyzed and compared
+against predefined thresholds.
+</p>
+<h3>Outcome</h3>
+<p>
+Provides immediate alerts during abnormal seismic activity,
+making it suitable for early warning and monitoring applications.
+</p>
+`,
+
+crt:`
+<h2>CRT – Railway Track Temperature Monitoring</h2>
+<h3>Overview</h3>
+<p>
+A railway safety project focused on continuous monitoring
+of rail track temperature to prevent overheating and deformation.
+</p>
+<h3>Controller & Sensors</h3>
+<p>
+ESP32 with industrial-grade temperature sensors.
+</p>
+<h3>System Architecture</h3>
+<p>
+Sensors mounted near the track measure temperature in real time.
+Data is processed and transmitted securely to the railway monitoring portal.
+</p>
+<h3>Outcome</h3>
+<p>
+Enables early warning and preventive maintenance of railway tracks.
+</p>
+`,
+
+hotaxle:`
+<h2>Hot Axle Box Monitoring System</h2>
+<h3>Overview</h3>
+<p>
+A safety-critical system designed to detect abnormal heating
+in train wheel axle boxes.
+</p>
+<h3>Controller & Sensors</h3>
+<p>
+ATmega microcontroller with high-temperature sensors.
+</p>
+<h3>Working Principle</h3>
+<p>
+Temperature sensors continuously monitor axle box temperature.
+If the value exceeds safe limits, alerts are generated and data
+is sent to the railway system.
+</p>
+<h3>Outcome</h3>
+<p>
+Helps prevent bearing failure, fire hazards, and derailment risks.
+</p>
+`,
+
+blackbox:`
+<h2>Car Black Box System</h2>
+<h3>Overview</h3>
+<p>
+An embedded data logging system designed to record
+critical vehicle parameters.
+</p>
+<h3>Controller & Sensors</h3>
+<p>
+PIC16F877A, RTC module, speed sensors.
+</p>
+<h3>Working</h3>
+<p>
+Vehicle parameters such as speed and gear state are logged
+with timestamps for later analysis.
+</p>
+<h3>Outcome</h3>
+<p>
+Useful for post-incident investigation and driver behavior analysis.
+</p>
+`,
+
+aqi:`
+<h2>AQI Monitoring Device</h2>
+<h3>Overview</h3>
+<p>
+A low-cost air quality monitoring system for environmental analysis.
+</p>
+<h3>Controller & Sensors</h3>
+<p>
+ESP32 with gas and environmental sensors.
+</p>
+<h3>Working</h3>
+<p>
+Sensor data is processed to compute AQI values
+and transmitted wirelessly for monitoring.
+</p>
+<h3>Outcome</h3>
+<p>
+Provides real-time air quality insights for smart city applications.
+</p>
+`,
+
+bluetooth:`
+<h2>Bluetooth Controlled Robot</h2>
+<h3>Overview</h3>
+<p>
+A mobile robotic platform supporting wireless control.
+</p>
+<h3>Controller & Communication</h3>
+<p>
+Arduino with HC-05 Bluetooth module.
+</p>
+<h3>Working</h3>
+<p>
+Receives commands from a mobile application
+to control movement and operating modes.
+</p>
+<h3>Outcome</h3>
+<p>
+Flexible and responsive remote robotic control.
+</p>
+`
+  };
+
+  document.getElementById('projectContent').innerHTML=data[key];
+  switchPage('projectDetail');
+}
+</script>
+
+</body>
+</html>
