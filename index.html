@@ -7,7 +7,7 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
-body{background:#050b18;color:#e8f1ff;overflow:hidden}
+body{background:#050b18;color:#e8f1ff;overflow-x:hidden}
 
 /* BACKGROUND */
 body::before{
@@ -36,40 +36,46 @@ nav button{
   padding:10px 18px;border-radius:12px;
   border:1px solid #5cc8ff;background:transparent;
   color:#5cc8ff;font-weight:600;cursor:pointer;
+  transition:.3s;
 }
 nav button:hover{background:#5cc8ff;color:#02111f}
 
 /* PAGE SYSTEM */
 .page{
-  position:absolute;inset:0;padding-top:120px;
-  display:flex;justify-content:center;align-items:flex-start;
+  position:absolute;inset:0;
+  display:flex;justify-content:flex-start;align-items:center;
+  flex-direction:column;
   opacity:0;pointer-events:none;
   transform:scale(1.05);filter:blur(16px);
   transition:.8s;
   overflow-y:auto;
+  padding:20px;
 }
 .page.active{opacity:1;pointer-events:auto;transform:scale(1);filter:blur(0)}
 .page.fadeout{opacity:0;transform:scale(.9);filter:blur(25px)}
 
 .box{
-  max-width:1000px;background:rgba(255,255,255,0.05);
+  max-width:1000px;width:100%;
+  background:rgba(255,255,255,0.05);
   border:1px solid rgba(255,255,255,0.08);
   border-radius:22px;padding:40px;
   backdrop-filter:blur(14px);
-  margin-bottom:40px;
+  margin-top:20px;
 }
 
-h1{font-size:52px}
+h1{font-size:52px;margin-bottom:12px}
 h2{font-size:34px;margin-bottom:16px}
-h3{margin-top:20px;margin-bottom:8px;color:#9dd6ff}
-p{color:#b8c9e8;font-size:16px;line-height:1.85}
+h3{margin-top:12px;margin-bottom:8px;color:#9dd6ff;font-size:22px}
+p{color:#b8c9e8;font-size:16px;line-height:1.7;margin-bottom:12px}
 
 /* HOME */
-.home{text-align:center;flex-direction:column;align-items:center}
+.home{text-align:center;justify-content:center}
+.home .box{margin-top:0}
 .home button{
   margin:10px;padding:14px 30px;
   border-radius:14px;border:1px solid #5cc8ff;
   background:transparent;color:#5cc8ff;cursor:pointer;
+  transition:.3s;
 }
 .home button:hover{background:#5cc8ff;color:#02111f}
 
@@ -87,10 +93,12 @@ p{color:#b8c9e8;font-size:16px;line-height:1.85}
   background:rgba(255,255,255,0.04);
   border:1px solid rgba(255,255,255,0.06);
   cursor:pointer;transition:.3s;
+  text-align:center;
 }
 .card:hover{transform:translateY(-6px);box-shadow:0 0 30px rgba(0,200,255,.35)}
 
-.back{margin-bottom:20px;display:inline-block;cursor:pointer;color:#5cc8ff}
+.back{margin-bottom:20px;display:inline-block;cursor:pointer;color:#5cc8ff;font-weight:600}
+.back:hover{text-decoration:underline}
 </style>
 </head>
 
@@ -108,7 +116,7 @@ p{color:#b8c9e8;font-size:16px;line-height:1.85}
 <div id="home" class="page active home">
   <div class="box">
     <h1>Mohit Gautam</h1>
-    <p>Embedded Engineer • Robotics • R&D • IoT Systems</p>
+    <p style="font-size:18px;color:#5cc8ff;margin-bottom:24px">Embedded Engineer • Robotics • R&D • IoT Systems</p>
     <button onclick="switchPage('about')">About</button>
     <button onclick="switchPage('projects')">Projects</button>
     <button onclick="switchPage('experience')">Experience</button>
@@ -120,37 +128,14 @@ p{color:#b8c9e8;font-size:16px;line-height:1.85}
 <div id="about" class="page">
   <div class="box">
     <h2>About Myself</h2>
-
     <p>
-      I am an <b>Embedded Engineer</b> with a strong foundation in
-      <b>Research & Development (R&D)</b> and hands-on expertise in
-      <b>Robotics and Intelligent Embedded Systems</b>.
-      My primary focus is on designing reliable, real-time,
-      microcontroller-based solutions for industrial and safety-critical applications.
+      I am an <b>Embedded Systems Engineer</b> with strong experience in <b>Research & Development (R&D)</b>, focusing on real-time and safety-critical embedded systems for industrial and infrastructure applications. My key areas of interest include <b>railway safety systems, industrial automation, robotics, and IoT-based monitoring solutions</b>.
     </p>
-
     <p>
-      I have extensive experience working with
-      <b>ESP32, STM32, Arduino (Uno/Nano), ATmega, and PIC microcontrollers</b>,
-      developing firmware in <b>Embedded C/C++</b>,
-      and implementing deterministic logic for
-      <b>real-time data acquisition, control systems, and monitoring platforms</b>.
+      I have hands-on experience with <b>ESP32, STM32, Arduino (ATmega328P), and PIC microcontrollers</b>, and I develop firmware using <b>Embedded C/C++</b> with an emphasis on <b>interrupt-driven programming, timers, ADC interfacing, and PWM-based motor control</b>. I am skilled in <b>sensor interfacing and signal conditioning</b>, including temperature, vibration, RFID, gas, IR, IMU, and optical sensors.
     </p>
-
     <p>
-      My technical skill set includes
-      <b>sensor interfacing</b> (temperature, vibration, RFID, IR, IMU),
-      <b>motor control and PWM techniques</b>,
-      and communication protocols such as
-      <b>UART, SPI, I2C, BLE, Wi-Fi</b>.
-      I also work on <b>system validation, PCB debugging, and field testing</b>.
-    </p>
-
-    <p>
-      With a strong inclination towards <b>Robotics</b> and <b>Applied R&D</b>,
-      I aim to build scalable embedded solutions that can be deployed
-      in real-world environments such as
-      <b>railway safety systems, automation, and IoT-based monitoring infrastructure</b>.
+      I have implemented reliable communication using <b>UART, SPI, I²C, Bluetooth, and Wi-Fi</b>, and I am experienced in <b>hardware–software integration, PCB debugging, and field testing</b>. I aim to build robust, deployable embedded solutions that meet real-world industrial and safety requirements.
     </p>
   </div>
 </div>
@@ -160,14 +145,22 @@ p{color:#b8c9e8;font-size:16px;line-height:1.85}
   <div class="box">
     <h2>Projects</h2>
     <div class="project-grid">
-      <div class="card" onclick="openProject('balance')">Self-Balancing Robot</div>
-      <div class="card" onclick="openProject('rfid')">RFID Sorting Robot</div>
-      <div class="card" onclick="openProject('earthquake')">Earthquake Detection System</div>
       <div class="card" onclick="openProject('crt')">CRT – Railway Track Temperature</div>
       <div class="card" onclick="openProject('hotaxle')">Hot Axle Box Monitoring</div>
-      <div class="card" onclick="openProject('blackbox')">Car Black Box System</div>
+      <div class="card" onclick="openProject('hb')">Hemoglobin Measurement System</div>
+      <div class="card" onclick="openProject('rfidatt')">RFID Attendance System</div>
+      <div class="card" onclick="openProject('balance')">Self-Balancing Robot</div>
+      <div class="card" onclick="openProject('earthquake')">Earthquake Detection System</div>
       <div class="card" onclick="openProject('aqi')">AQI Monitoring Device</div>
+      <div class="card" onclick="openProject('blackbox')">Car Black Box System</div>
       <div class="card" onclick="openProject('bluetooth')">Bluetooth Controlled Robot</div>
+      <div class="card" onclick="openProject('line')">Line Following Robot</div>
+      <div class="card" onclick="openProject('dustbin')">Smart Dustbin System</div>
+      <div class="card" onclick="openProject('waterlevel')">Automatic Water Level Controller</div>
+      <div class="card" onclick="openProject('energymeter')">Smart Energy Meter</div>
+      <div class="card" onclick="openProject('rfidsorting')">RFID-Based Object Sorting</div>
+      <div class="card" onclick="openProject('homeauto')">IoT Home Automation</div>
+      <div class="card" onclick="openProject('parking')">Smart Parking System</div>
     </div>
   </div>
 </div>
@@ -184,12 +177,16 @@ p{color:#b8c9e8;font-size:16px;line-height:1.85}
 <div id="experience" class="page">
   <div class="box">
     <h2>Experience</h2>
-    <p><b>Tecxtra Pvt. Ltd.</b><br>October 2024 – Present</p>
+    <h3>Embedded Engineer – R&D</h3>
+    <p style="color:#9dd6ff;margin-bottom:8px"><b>Tecxtra Pvt. Ltd.</b> | Oct 2024 – Present</p>
     <p>
-      Working in R&D on railway-grade embedded systems including
-      CRT and Hot Axle Box projects, sensor validation,
-      real-time monitoring, data transmission to railway portals,
-      PCB debugging, and system-level testing.
+      I am working in the R&D team on railway-grade and industrial embedded systems, contributing across the full development lifecycle including <b>firmware development, sensor integration, testing, and validation</b>.
+    </p>
+    <p>
+      I have been directly involved in <b>CRT (Railway Track Temperature Monitoring) and Hot Axle Box Monitoring</b> projects, where I worked on <b>sensor calibration, real-time data acquisition, threshold-based alert logic</b>, and communication interface integration for monitoring platforms.
+    </p>
+    <p>
+      My role also includes <b>embedded firmware optimization, handling timers, interrupts, and watchdogs</b>, along with <b>PCB debugging and field-level testing</b>. This experience has strengthened my ability to develop reliable, mission-critical embedded systems suitable for industrial deployment.
     </p>
   </div>
 </div>
@@ -198,9 +195,9 @@ p{color:#b8c9e8;font-size:16px;line-height:1.85}
 <div id="contact" class="page">
   <div class="box">
     <h2>Contact</h2>
-    <p>📞 9730075449</p>
-    <p>📧 goutammohit527@gmail.com</p>
-    <p>📍 Nagpur, India</p>
+    <p>📞 <b>9730075449</b></p>
+    <p>📧 <b>goutammohit527@gmail.com</b></p>
+    <p>📍 <b>Nagpur, India</b></p>
   </div>
 </div>
 
@@ -217,196 +214,224 @@ function switchPage(id){
     next.classList.add('active');
     if(id!=='home') nav.classList.add('show'); else nav.classList.remove('show');
     currentPage=id;
+    next.scrollTop=0;
   },500);
 }
 
 function openProject(key){
-  const data={
-
-balance:`
-<h2>Self-Balancing Robot</h2>
-<h3>Overview</h3>
-<p>
-A two-wheel self-balancing robotic platform developed to study
-real-time control systems and closed-loop feedback mechanisms.
-</p>
-<h3>Controller & Sensors</h3>
-<p>
-Arduino Uno with IMU (accelerometer + gyroscope).
-</p>
-<h3>System Architecture</h3>
-<p>
-The IMU continuously measures tilt angle.
-A PID control algorithm calculates the error between the
-desired vertical position and the actual tilt.
-Motor speed is adjusted using PWM signals through a motor driver.
-</p>
-<h3>Outcome</h3>
-<p>
-Achieved stable balancing with fast recovery from external disturbances,
-demonstrating effective real-time control implementation.
-</p>
-`,
-
-rfid:`
-<h2>RFID Sorting Robot</h2>
-<h3>Overview</h3>
-<p>
-An autonomous robotic system designed to identify and sort objects
-based on RFID tag identification.
-</p>
-<h3>Controller & Sensors</h3>
-<p>
-ESP32 microcontroller, RFID RC522 module, IR sensors, servo motors.
-</p>
-<h3>Working Principle</h3>
-<p>
-The robot follows a predefined path using IR sensors.
-When an RFID tag is detected, the ESP32 reads the tag ID and
-activates a servo mechanism to route the object to its respective location.
-</p>
-<h3>Outcome</h3>
-<p>
-Reliable and automated object identification and sorting with minimal human intervention.
-</p>
-`,
-
-earthquake:`
-<h2>Earthquake Detection System</h2>
-<h3>Overview</h3>
-<p>
-A vibration-based earthquake detection and early warning system
-designed to monitor abnormal ground movement in real time.
-</p>
-<h3>Controller & Sensors</h3>
-<p>
-ESP32 microcontroller with SW420 vibration sensors.
-</p>
-<h3>System Working</h3>
-<p>
-The ESP32 continuously samples vibration signals from multiple sensors.
-Vibration intensity and frequency are analyzed and compared
-against predefined thresholds.
-</p>
-<h3>Outcome</h3>
-<p>
-Provides immediate alerts during abnormal seismic activity,
-making it suitable for early warning and monitoring applications.
-</p>
-`,
+const data={
 
 crt:`
-<h2>CRT – Railway Track Temperature Monitoring</h2>
-<h3>Overview</h3>
+<h2>CRT – Railway Track Temperature Monitoring System</h2>
+<h3>Technical Implementation</h3>
 <p>
-A railway safety project focused on continuous monitoring
-of rail track temperature to prevent overheating and deformation.
+<b>Controller:</b> ESP32<br>
+<b>Sensors:</b> Industrial RTD / Digital Temperature Sensor (DS18B20 / PT100 + interface)<br>
+<b>Communication:</b> WiFi-based data transmission
 </p>
-<h3>Controller & Sensors</h3>
+<h3>Project Overview</h3>
 <p>
-ESP32 with industrial-grade temperature sensors.
-</p>
-<h3>System Architecture</h3>
-<p>
-Sensors mounted near the track measure temperature in real time.
-Data is processed and transmitted securely to the railway monitoring portal.
-</p>
-<h3>Outcome</h3>
-<p>
-Enables early warning and preventive maintenance of railway tracks.
-</p>
-`,
+This project focuses on continuous monitoring of railway track temperature to prevent rail buckling and accidents caused by excessive heat. Temperature sensors are installed near the rail track and continuously measure thermal conditions under outdoor environments. The ESP32 microcontroller acquires sensor data at fixed intervals, applies filtering, and compares values with predefined safety thresholds. If abnormal temperature rise is detected, alerts are generated and transmitted to the railway monitoring system. This enables predictive maintenance and improves railway safety by preventing track deformation during extreme weather conditions.
+</p>`,
 
 hotaxle:`
 <h2>Hot Axle Box Monitoring System</h2>
-<h3>Overview</h3>
+<h3>Technical Implementation</h3>
 <p>
-A safety-critical system designed to detect abnormal heating
-in train wheel axle boxes.
+<b>Controller:</b> ATmega / ESP32<br>
+<b>Sensors:</b> High-temperature sensors (RTD / Thermocouple based)<br>
+<b>Communication:</b> Real-time data transmission to monitoring infrastructure
 </p>
-<h3>Controller & Sensors</h3>
+<h3>Project Overview</h3>
 <p>
-ATmega microcontroller with high-temperature sensors.
-</p>
-<h3>Working Principle</h3>
-<p>
-Temperature sensors continuously monitor axle box temperature.
-If the value exceeds safe limits, alerts are generated and data
-is sent to the railway system.
-</p>
-<h3>Outcome</h3>
-<p>
-Helps prevent bearing failure, fire hazards, and derailment risks.
-</p>
-`,
+The Hot Axle Box Monitoring System is a safety-critical railway application designed to detect overheating in axle box bearings of trains. Temperature sensors are mounted close to axle bearings to continuously monitor heat generation during operation. The controller samples temperature data in real time and compares it against safety limits. If overheating is detected, the system generates alerts and communicates them to the monitoring infrastructure. Early detection prevents bearing failure, fire hazards, and derailment risks, making it essential for railway safety systems.
+</p>`,
 
-blackbox:`
-<h2>Car Black Box System</h2>
-<h3>Overview</h3>
+hb:`
+<h2>Hemoglobin Measurement System</h2>
+<h3>Technical Implementation</h3>
 <p>
-An embedded data logging system designed to record
-critical vehicle parameters.
+<b>Controller:</b> Arduino Uno / Nano<br>
+<b>Sensors:</b> LED, Photodiode, Signal Conditioning Circuit<br>
+<b>Interface:</b> ADC for analog signal processing
 </p>
-<h3>Controller & Sensors</h3>
+<h3>Project Overview</h3>
 <p>
-PIC16F877A, RTC module, speed sensors.
-</p>
-<h3>Working</h3>
+This project measures hemoglobin concentration using optical absorption principles. A high-intensity LED emits light through a finger or blood sample, and a photodiode measures the transmitted light intensity. The analog signal varies according to hemoglobin concentration and is amplified before being read by the microcontroller ADC. Calibration algorithms convert raw ADC values into hemoglobin levels. The system provides a low-cost, portable, and non-invasive solution suitable for medical screening and health monitoring applications.
+</p>`,
+
+rfidatt:`
+<h2>RFID Attendance System (Data Stored on Laptop)</h2>
+<h3>Technical Implementation</h3>
 <p>
-Vehicle parameters such as speed and gear state are logged
-with timestamps for later analysis.
+<b>Controller:</b> Arduino Uno / ESP32<br>
+<b>Modules:</b> RFID Reader (RC522 / EM-18), RFID Cards, Virtual COM Port Server<br>
+<b>Communication:</b> Serial UART to laptop
 </p>
-<h3>Outcome</h3>
+<h3>Project Overview</h3>
 <p>
-Useful for post-incident investigation and driver behavior analysis.
+This system automates attendance using RFID technology. Each user carries a unique RFID card. When scanned, the RFID reader sends the tag ID to the controller, which forwards the data to a laptop via serial communication. A Virtual COM Port Server logs attendance records with timestamps directly on the laptop. This eliminates manual entry, prevents proxy attendance, and ensures accurate digital record keeping suitable for colleges, offices, and labs.
+</p>`,
+
+balance:`
+<h2>Self-Balancing Robot</h2>
+<h3>Technical Implementation</h3>
+<p>
+<b>Controller:</b> Arduino Uno<br>
+<b>Sensors:</b> IMU (Accelerometer + Gyroscope)<br>
+<b>Actuators:</b> DC motors with motor driver
 </p>
-`,
+<h3>Project Overview</h3>
+<p>
+A two-wheel self-balancing robot designed to demonstrate real-time control systems. The IMU continuously measures tilt angle, and the controller applies a PID control algorithm to maintain balance. Motor speeds are adjusted using PWM signals through a motor driver. The robot maintains vertical stability and recovers from disturbances, demonstrating closed-loop control and dynamic system stabilization.
+</p>`,
+
+earthquake:`
+<h2>Earthquake Detection System</h2>
+<h3>Technical Implementation</h3>
+<p>
+<b>Controller:</b> ESP32<br>
+<b>Sensors:</b> Vibration Sensors (SW-420)<br>
+<b>Features:</b> Seismic pattern analysis and alert generation
+</p>
+<h3>Project Overview</h3>
+<p>
+This system detects abnormal seismic vibrations using multiple vibration sensors. The ESP32 analyzes vibration intensity and frequency patterns. When seismic activity exceeds predefined thresholds, alerts are generated. The system is suitable for early warning systems, building safety monitoring, and seismic research applications.
+</p>`,
 
 aqi:`
 <h2>AQI Monitoring Device</h2>
-<h3>Overview</h3>
+<h3>Technical Implementation</h3>
 <p>
-A low-cost air quality monitoring system for environmental analysis.
+<b>Controller:</b> ESP32<br>
+<b>Sensors:</b> MQ-135 / MQ-7 Gas Sensors, DHT11 / DHT22<br>
+<b>Features:</b> Real-time AQI calculation and environmental monitoring
 </p>
-<h3>Controller & Sensors</h3>
+<h3>Project Overview</h3>
 <p>
-ESP32 with gas and environmental sensors.
-</p>
-<h3>Working</h3>
+An air quality monitoring system that measures pollution levels in real time. Gas sensors detect harmful gases, while temperature and humidity sensors provide environmental context. The ESP32 processes sensor data to calculate Air Quality Index (AQI) values and enables real-time environmental monitoring for smart city and indoor air quality applications.
+</p>`,
+
+blackbox:`
+<h2>Car Black Box System</h2>
+<h3>Technical Implementation</h3>
 <p>
-Sensor data is processed to compute AQI values
-and transmitted wirelessly for monitoring.
+<b>Controller:</b> PIC16F877A<br>
+<b>Sensors:</b> Speed Sensor, RTC Module<br>
+<b>Storage:</b> EEPROM for data logging
 </p>
-<h3>Outcome</h3>
+<h3>Project Overview</h3>
 <p>
-Provides real-time air quality insights for smart city applications.
-</p>
-`,
+An embedded vehicle data logging system that records speed, time, and event data. Information is stored with timestamps and can be retrieved later for post-incident analysis. The system is useful for accident investigation, driver behavior analysis, and vehicle diagnostics.
+</p>`,
 
 bluetooth:`
 <h2>Bluetooth Controlled Robot</h2>
-<h3>Overview</h3>
+<h3>Technical Implementation</h3>
 <p>
-A mobile robotic platform supporting wireless control.
+<b>Controller:</b> Arduino Uno<br>
+<b>Modules:</b> HC-05 Bluetooth Module<br>
+<b>Interface:</b> Mobile application for remote control
 </p>
-<h3>Controller & Communication</h3>
+<h3>Project Overview</h3>
 <p>
-Arduino with HC-05 Bluetooth module.
-</p>
-<h3>Working</h3>
-<p>
-Receives commands from a mobile application
-to control movement and operating modes.
-</p>
-<h3>Outcome</h3>
-<p>
-Flexible and responsive remote robotic control.
-</p>
-`
-  };
+A mobile robot controlled wirelessly using Bluetooth communication. Commands sent from a mobile application are received by the controller and translated into motor control actions. This project demonstrates wireless communication, motor control, and remote operation.
+</p>`,
 
-  document.getElementById('projectContent').innerHTML=data[key];
-  switchPage('projectDetail');
+line:`
+<h2>Line Following Robot</h2>
+<h3>Technical Implementation</h3>
+<p>
+<b>Controller:</b> Arduino Uno<br>
+<b>Sensors:</b> IR Line Sensors (TCRT5000)<br>
+<b>Actuators:</b> DC motors with motor driver
+</p>
+<h3>Project Overview</h3>
+<p>
+The robot follows a predefined path using IR sensors that detect contrast between the line and surface. Sensor data is processed by the controller to dynamically adjust motor speeds. The project demonstrates autonomous navigation and basic industrial automation logic.
+</p>`,
+
+dustbin:`
+<h2>Smart Dustbin System</h2>
+<h3>Technical Implementation</h3>
+<p>
+<b>Controller:</b> Arduino Uno<br>
+<b>Sensors:</b> Ultrasonic Sensor, Servo Motor<br>
+<b>Features:</b> Automatic lid operation and fill level detection
+</p>
+<h3>Project Overview</h3>
+<p>
+The system detects hand presence and dustbin fill level using ultrasonic sensors. The controller automatically opens the lid and generates alerts when the dustbin is full. It improves hygiene and waste management automation.
+</p>`,
+
+waterlevel:`
+<h2>Automatic Water Level Controller</h2>
+<h3>Technical Implementation</h3>
+<p>
+<b>Controller:</b> Arduino Uno<br>
+<b>Sensors:</b> Water Level Sensors / Float Switches<br>
+<b>Actuators:</b> Relay-controlled pump system
+</p>
+<h3>Project Overview</h3>
+<p>
+Monitors water levels in tanks and automatically controls pump operation. Prevents overflow and dry running, ensuring efficient water management.
+</p>`,
+
+energymeter:`
+<h2>Smart Energy Meter</h2>
+<h3>Technical Implementation</h3>
+<p>
+<b>Controller:</b> ESP32<br>
+<b>Sensors:</b> ACS712 Current Sensor, Voltage Sensor<br>
+<b>Features:</b> Real-time power monitoring and data logging
+</p>
+<h3>Project Overview</h3>
+<p>
+Measures real-time voltage, current, and power consumption. Data can be logged or transmitted for energy monitoring and optimization applications.
+</p>`,
+
+rfidsorting:`
+<h2>RFID-Based Object Sorting System</h2>
+<h3>Technical Implementation</h3>
+<p>
+<b>Controller:</b> ESP32<br>
+<b>Modules:</b> RFID Reader, Servo Motors<br>
+<b>Features:</b> Automated object identification and sorting
+</p>
+<h3>Project Overview</h3>
+<p>
+Objects with RFID tags are identified and sorted automatically using servo mechanisms. Useful in warehouses and automation systems.
+</p>`,
+
+homeauto:`
+<h2>IoT-Based Home Automation System</h2>
+<h3>Technical Implementation</h3>
+<p>
+<b>Controller:</b> ESP32<br>
+<b>Modules:</b> Relays, Wi-Fi Module<br>
+<b>Features:</b> Remote device control and IoT integration
+</p>
+<h3>Project Overview</h3>
+<p>
+Controls home appliances remotely using wireless communication. Demonstrates IoT integration and remote device control.
+</p>`,
+
+parking:`
+<h2>Smart Parking System</h2>
+<h3>Technical Implementation</h3>
+<p>
+<b>Controller:</b> Arduino / ESP32<br>
+<b>Sensors:</b> Ultrasonic Sensors<br>
+<b>Features:</b> Real-time parking slot availability detection
+</p>
+<h3>Project Overview</h3>
+<p>
+Detects parking slot availability and provides real-time status. Suitable for smart city parking management.
+</p>`
+};
+
+document.getElementById('projectContent').innerHTML=data[key];
+switchPage('projectDetail');
 }
 </script>
 
